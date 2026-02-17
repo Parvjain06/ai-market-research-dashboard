@@ -149,6 +149,16 @@ The dashboard auto-downloads and caches the model at runtime.
 
 
 🗂️ Project Structure
+ai-market-research-dashboard/
+
+├── roberta_app.py
+├── bert_app.py
+├── svm_app.py
+├── requirements.txt
+├── sample_reviews.csv
+├── README.md
+├── LICENSE
+└── .gitignore
 
 
 🛠️ Tech Stack
