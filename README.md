@@ -1,12 +1,16 @@
 📊 Market Research Dashboard with ABSA + SVM + BERT + RoBERTa
 
-An end-to-end NLP system for large-scale sentiment analysis and market intelligence built using classical ML, transformers, aspect-based sentiment analysis, and LLM-powered insights.
-This project analyzes customer reviews, identifies sentiment, extracts aspect-level opinions, and generates business recommendations through an interactive Streamlit dashboard.
+🚀 Production-ready NLP system for sentiment intelligence using SVM, BERT, RoBERTa + ABSA + LLM insights.
+An end-to-end NLP system for large-scale sentiment analysis and market intelligence built using classical ML, transformer models, aspect-based sentiment analysis, and LLM-powered insights.
 
+This project analyzes customer reviews, detects sentiment, extracts aspect-level opinions, and generates business recommendations through an interactive Streamlit dashboard.
+
+⸻
 
 🚀 Project Overview
 
 This system was designed to solve a real industry problem:
+
 How can businesses automatically understand customer feedback at scale and extract actionable insights?
 
 The solution combines:
@@ -14,67 +18,80 @@ The solution combines:
 	•	Transformer-based Deep Learning
 	•	Class imbalance handling
 	•	Aspect-Based Sentiment Analysis (ABSA)
-	•	AI-powered reporting
+	•	AI-powered insight generation
 	•	Interactive analytics dashboard
 
+⸻
 
 🧠 Models Implemented
 
 All models were trained on the same dataset split for fair comparison.
 
-1️⃣ SVM (Class Weighted – Baseline)
+1️⃣ SVM (Class-Weighted Baseline)
 	•	TF-IDF vectorization
-	•	GridSearchCV tuning
-	•	Class weights used to handle imbalance
-  
-Performance:
+	•	GridSearchCV hyperparameter tuning
+	•	Class weights to handle imbalance
+
+Performance
 	•	Accuracy: 82.51%
 	•	Weighted F1: 79.48%
 	•	Macro F1: 55.23%
 
+⸻
 
-2️⃣ BERT (Class Weighted)
+2️⃣ BERT (Class-Weighted)
 	•	Transformer fine-tuning
 	•	Weighted cross-entropy loss
 	•	Early stopping
 
-Performance:
+Performance
 	•	Accuracy: 83.21%
 	•	Weighted F1: 84.32%
 	•	Macro F1: 66.53%
 
+⸻
 
 3️⃣ RoBERTa (Final Production Model)
 	•	Class-weighted training
 	•	5–6 epochs + early stopping
-	•	Best handling of contextual sentiment
+	•	Strong contextual sentiment understanding
 
-Performance:
+Performance
 	•	Accuracy: 87.63%
 	•	Weighted F1: 88.03%
 	•	Macro F1: 71.66%
+	
+RoBERTa improved accuracy by +5% over SVM and +4% over BERT.
 
-RoBERTa significantly outperformed both SVM and BERT and is used as the primary prediction model in the dashboard.
 
+| Model    | Accuracy | Weighted F1 | Macro F1 |
+|----------|----------|-------------|----------|
+| SVM      | 82.51%   | 79.48%      | 55.23%   |
+| BERT     | 83.21%   | 84.32%      | 66.53%   |
+| RoBERTa  | 87.63%   | 88.03%      | 71.66%   |
+
+⸻
 
 ⚖️ Class Imbalance Strategy
 
 Dataset distribution:
 	•	Positive → dominant class
 	•	Negative → medium
-	•	Neutral → minority and hardest to predict
+	•	Neutral → minority (hardest class)
 
 Techniques explored:
 	•	Random undersampling
 	•	SMOTE
 	•	Class weights (final choice)
 
-Final decision: Class-weighted training performed best and preserved data volume.
+Final decision:
+Class-weighted training preserved data volume and delivered the best performance.
 
+⸻
 
 🔍 Aspect-Based Sentiment Analysis (ABSA)
 
-We integrated a DeBERTa ABSA model to extract sentiment for key business aspects:
+Integrated DeBERTa ABSA model to extract sentiment across business-critical aspects:
 	•	Price
 	•	Quality
 	•	Delivery
@@ -82,16 +99,17 @@ We integrated a DeBERTa ABSA model to extract sentiment for key business aspects
 	•	Packaging
 	•	Quantity
 
-This enables insights like:
+Enables insights like:
 	•	“Customers like product quality but complain about delivery”
 	•	“Pricing dissatisfaction increasing over time”
 
+⸻
 
 📈 Dashboard Features (Streamlit)
 
 📂 Upload & Analyze Reviews
 	•	Upload CSV with reviews
-	•	Automatic sentiment prediction using RoBERTa
+	•	Automatic sentiment prediction (RoBERTa)
 	•	Confidence scoring
 	•	Aspect-level sentiment extraction
 
@@ -119,36 +137,37 @@ This enables insights like:
 	•	Identify key problems
 	•	Suggest business improvements
 
+⸻
 
 🏗️ System Architecture
 
 User Reviews CSV
-        ↓
+↓
 RoBERTa Sentiment Model
-        ↓
+↓
 ABSA Aspect Model
-        ↓
+↓
 Filtered Analytics Engine
-        ↓
+↓
 Streamlit Dashboard
-        ↓
+↓
 LLM Insight Generator
 
+⸻
 
 📦 Models Hosted on HuggingFace
 
-To avoid large GitHub file limits, trained models are hosted on HuggingFace.
+To avoid GitHub file size limits, trained models are hosted externally.
 
-RoBERTa:
-parvj-06/roberta-sentiment-classweighted
-
-Model link:
+RoBERTa Model:
 https://huggingface.co/parvj-06/roberta-sentiment-classweighted
 
 The dashboard auto-downloads and caches the model at runtime.
 
+⸻
 
 🗂️ Project Structure
+
 ai-market-research-dashboard/
 
 ├── roberta_app.py
@@ -160,6 +179,8 @@ ai-market-research-dashboard/
 ├── LICENSE
 └── .gitignore
 
+
+⸻
 
 🛠️ Tech Stack
 
@@ -186,36 +207,46 @@ Visualization
 
 AI Integration
 	•	LLaMA via Ollama
-	•	Business insight generation
+	•	Automated business insight generation
 
+⸻
 
 📊 Key Insights from Experiments
-	•	RoBERTa captures context better than BERT and SVM.
-	•	Class weighting significantly improved minority class performance.
-	•	Neutral sentiment remains the hardest to classify.
-	•	Transformer models outperform classical ML on nuanced language.
-	•	SVM remains a strong baseline for structured sentiment signals.
+	•	RoBERTa captures context better than BERT and SVM
+	•	Class weighting significantly improved minority class performance
+	•	Neutral sentiment remains the hardest class
+	•	Transformer models outperform classical ML on nuanced language
+	•	SVM remains a strong baseline
 
+⸻
 
 ▶️ How to Run Locally
 
-1) Install dependencies
+Install dependencies:
+
 pip install -r requirements.txt
 
-2) Run the dashboard
+Run dashboard:
+
 streamlit run roberta_app.py
 
+
+⸻
 
 📁 CSV Format Required
 
 Must contain:
+
 review
 
 Optional:
+
 product
 date
 rating
 
+
+⸻
 
 🎯 Use Cases
 	•	Market research
@@ -224,19 +255,22 @@ rating
 	•	Competitive intelligence
 	•	Business decision support
 
+⸻
 
 📌 Future Improvements
 	•	Deploy dashboard online
-	•	Add live review scraping
 	•	Improve neutral sentiment detection
 	•	Add misclassification explorer
 	•	Convert models into REST APIs
 	•	Real-time sentiment monitoring
 
+⸻
 
-👨‍💻 Parv Jain
+👨‍💻 Author
 
-Built as an end-to-end applied NLP project covering:
+Parv Jain
+
+Built as a full-stack applied NLP system covering:
 	•	Data preprocessing
 	•	Model training
 	•	Imbalance handling
@@ -244,12 +278,11 @@ Built as an end-to-end applied NLP project covering:
 	•	Interactive analytics
 	•	AI-driven insights
 
-This project demonstrates full-stack data science capability from modeling to deployment.
-
+⸻
 
 ⭐ Final Result
 
-A production-ready sentiment intelligence platform that combines:
+A production-ready sentiment intelligence platform combining:
 	•	Classical ML
 	•	Transformers
 	•	ABSA
