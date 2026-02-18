@@ -182,9 +182,10 @@ elif menu == "Upload & Analyze Reviews":
 
         with main_col:
             counts = df_filtered["predicted_sentiment"].value_counts()
-            fig1, ax1 = plt.subplots()
+            fig1, ax1 = plt.subplots(figsize=(4,4))
             ax1.pie(counts, labels=counts.index, autopct="%1.1f%%")
             ax1.set_title("Sentiment Distribution")
+            plt.tight_layout()
             st.pyplot(fig1)
 
             st.subheader("Aspect Sentiment Distribution")
