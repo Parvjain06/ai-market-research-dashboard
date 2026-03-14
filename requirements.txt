@@ -9,3 +9,4 @@ seaborn
 wordcloud
 joblib
 huggingface_hub
+groq
