@@ -10,3 +10,4 @@ wordcloud
 joblib
 huggingface_hub
 groq
+plotly
