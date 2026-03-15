@@ -61,7 +61,7 @@ Enables precise insights like:
 
 ### Upload & Analyze
 - Upload any CSV with a `review` column
-- Batched RoBERTa inference (fast — processes all reviews at once)
+- Batched RoBERTa inference (fast as it processes all reviews at once)
 - Batched ABSA extraction across all 6 aspects
 - Confidence scoring per prediction
 
