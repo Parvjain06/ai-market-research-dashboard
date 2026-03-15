@@ -14,7 +14,7 @@
 
 SentIQ is a production-ready NLP system that automatically understands customer feedback at scale and extracts actionable business insights.
 
-It combines classical ML, transformer models, aspect-based sentiment analysis, and an AI analyst powered by LLaMA 3.3 (via Groq) — all wrapped in a clean, professional Streamlit dashboard.
+It combines classical ML, transformer models, aspect-based sentiment analysis, and an AI analyst powered by LLaMA 3.3 (via Groq), all wrapped in a clean, professional Streamlit dashboard.
 
 ---
 
@@ -28,7 +28,7 @@ All models trained on the same dataset split with class-weighted training to han
 | BERT | 83.21% | 84.32% | 66.53% |
 | **RoBERTa (Production)** | **87.63%** | **88.03%** | **71.66%** |
 
-RoBERTa is used as the production model — hosted on HuggingFace and auto-downloaded at runtime.
+RoBERTa is used as the production model, hosted on HuggingFace and auto-downloaded at runtime.
 
 **Model:** https://huggingface.co/parvj-06/roberta-sentiment-classweighted
 
@@ -41,7 +41,7 @@ RoBERTa is used as the production model — hosted on HuggingFace and auto-downl
 - Neutral → minority (hardest class)
 
 Techniques explored: random undersampling, SMOTE, class weights.  
-**Final choice:** class-weighted training — preserved data volume and gave best performance.
+**Final choice:** class-weighted training → preserved data volume and gave best performance.
 
 ---
 
