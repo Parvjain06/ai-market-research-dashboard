@@ -25,29 +25,32 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
 
 :root {
-    --ivory:  #FDFAF4;
-    --linen:  #F5F0E8;
-    --sage:   #B8B5A8;
-    --taupe:  #6B6560;
-    --ink:    #2C2825;
-    --green:  #4A7C59;
-    --red:    #B85450;
-    --amber:  #C9973A;
-    --border: rgba(184,181,168,0.55);
+    --white:   #FFFDF9;
+    --off:     #FAF8F5;
+    --surface: #F5F2EE;
+    --border:  #E8E4DF;
+    --border2: #D8D4CF;
+    --ink:     #1A1714;
+    --muted:   #918A82;
+    --subtle:  #C4BDB5;
+    --green:   #2A7A4B;
+    --red:     #C0392B;
+    --amber:   #D4860A;
+    --accent:  #1A1714;
 }
 
 html, body, [class*="css"] {
-    font-family: 'DM Sans', sans-serif !important;
-    background-color: var(--ivory) !important;
+    font-family: 'Inter', sans-serif !important;
+    background-color: var(--off) !important;
     color: var(--ink) !important;
 }
 .main .block-container {
-    padding: 0 2.5rem 2rem 2.5rem !important;
+    padding: 0 3rem 2rem 3rem !important;
     max-width: 1500px;
-    background: var(--ivory);
+    background: var(--off);
 }
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
@@ -55,168 +58,161 @@ html, body, [class*="css"] {
 [data-testid="stSidebar"] { display: none; }
 
 /* ── PAGE HEADER ── */
-.page-header { margin-bottom: 1.6rem; }
+.page-header { margin-bottom: 2rem; }
 .page-title {
-    font-family: 'Lora', serif;
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
     color: var(--ink);
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 .page-subtitle {
-    font-size: 0.84rem;
-    color: var(--taupe);
-    margin-top: 0.25rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
     font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
-/* ── FILTER CARD — applied via CSS to the container ── */
+/* ── FILTER CARD ── */
 div[data-testid="stVerticalBlockBorderWrapper"] {
-    background: var(--linen) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 10px !important;
+    border-radius: 8px !important;
     padding: 0.2rem 0.8rem 0.6rem !important;
-    margin-bottom: 1.4rem !important;
+    margin-bottom: 1.6rem !important;
 }
-
-/* filter widget labels */
 div[data-testid="stVerticalBlockBorderWrapper"] label p,
 div[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stWidgetLabel"] p {
-    font-size: 0.68rem !important;
+    font-size: 0.65rem !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.09em !important;
-    color: #B8B5A8 !important;
-    -webkit-text-fill-color: #B8B5A8 !important;
+    letter-spacing: 0.1em !important;
+    color: var(--subtle) !important;
+    -webkit-text-fill-color: var(--subtle) !important;
     font-weight: 500 !important;
     margin-bottom: 3px !important;
 }
-
-/* filter multiselect boxes */
 div[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stMultiSelect"] > div {
-    background: var(--ivory) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 7px !important;
+    border-radius: 6px !important;
 }
 div[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stMultiSelect"] span[data-baseweb="tag"] {
-    background: rgba(107,101,96,0.12) !important;
+    background: var(--surface) !important;
     border: 1px solid var(--border) !important;
     color: var(--ink) !important;
     border-radius: 4px !important;
-    font-size: 0.78rem !important;
+    font-size: 0.76rem !important;
 }
-
-/* filter text input */
 div[data-testid="stVerticalBlockBorderWrapper"] input {
-    background: var(--ivory) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 7px !important;
-    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+    font-size: 0.84rem !important;
 }
-
-/* filter selectbox */
 div[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stSelectbox"] > div > div {
-    background: var(--ivory) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 7px !important;
+    border-radius: 6px !important;
 }
-
-/* filter slider */
 div[data-testid="stVerticalBlockBorderWrapper"] [data-baseweb="slider"] div[role="slider"] {
-    background: var(--taupe) !important;
-    border-color: var(--taupe) !important;
+    background: var(--ink) !important; border-color: var(--ink) !important;
 }
 div[data-testid="stVerticalBlockBorderWrapper"] div[data-baseweb="slider"] > div > div > div:nth-child(2) {
-    background: var(--taupe) !important;
+    background: var(--ink) !important;
 }
 
 /* ── KPI CARDS ── */
 .kpi-row {
     display: grid;
     grid-template-columns: repeat(4, minmax(0,1fr));
-    gap: 12px;
-    margin-bottom: 1.6rem;
+    gap: 10px;
+    margin-bottom: 2rem;
 }
 .kpi-card {
-    background: var(--linen);
+    background: var(--white);
     border: 1px solid var(--border);
-    border-top: 3px solid var(--sage);
-    border-radius: 10px;
-    padding: 1.1rem 1.2rem;
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
-.kpi-card.green { border-top-color: var(--green); }
-.kpi-card.red   { border-top-color: var(--red); }
-.kpi-card.amber { border-top-color: var(--amber); }
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26,23,20,0.06);
+}
+.kpi-card.green { border-top: 2.5px solid var(--green); }
+.kpi-card.red   { border-top: 2.5px solid var(--red); }
+.kpi-card.amber { border-top: 2.5px solid var(--amber); }
 .kpi-label {
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #6B6560 !important;
-    -webkit-text-fill-color: #6B6560 !important;
-    font-weight: 500;
+    font-size: 0.65rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--subtle) !important;
+    -webkit-text-fill-color: var(--subtle) !important;
+    font-weight: 500 !important;
 }
 .kpi-value {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 1.1;
-    margin: 0.3rem 0 0.15rem;
-    color: #2C2825 !important;
-    -webkit-text-fill-color: #2C2825 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.2rem !important;
+    font-weight: 400 !important;
+    line-height: 1.1 !important;
+    margin: 0.3rem 0 0.1rem !important;
+    color: #111111 !important;
+    -webkit-text-fill-color: #111111 !important;
 }
-.kpi-card.green .kpi-value { color: #4A7C59 !important; -webkit-text-fill-color: #4A7C59 !important; }
-.kpi-card.red   .kpi-value { color: #B85450 !important; -webkit-text-fill-color: #B85450 !important; }
-.kpi-card.amber .kpi-value { color: #C9973A !important; -webkit-text-fill-color: #C9973A !important; }
+.kpi-card.green .kpi-value { color: #2A7A4B !important; -webkit-text-fill-color: #2A7A4B !important; }
+.kpi-card.red   .kpi-value { color: #C0392B !important; -webkit-text-fill-color: #C0392B !important; }
+.kpi-card.amber .kpi-value { color: #D4860A !important; -webkit-text-fill-color: #D4860A !important; }
 .kpi-sub {
-    font-size: 0.76rem;
-    color: #B8B5A8 !important;
-    -webkit-text-fill-color: #B8B5A8 !important;
+    font-size: 0.75rem !important;
+    color: var(--muted) !important;
+    -webkit-text-fill-color: var(--muted) !important;
 }
 
 /* ── INNER TABS ── */
 .stTabs [data-baseweb="tab-list"] {
     background: transparent !important;
     border: none !important;
-    border-bottom: 1px solid rgba(184,181,168,0.55) !important;
+    border-bottom: 1px solid var(--border) !important;
     border-radius: 0 !important;
     padding: 0 !important;
-    gap: 4px !important;
-    margin-bottom: 1.4rem !important;
+    gap: 0 !important;
+    margin-bottom: 1.6rem !important;
 }
 .stTabs [data-baseweb="tab"] {
     background: transparent !important;
-    color: #B8B5A8 !important;
-    -webkit-text-fill-color: #B8B5A8 !important;
+    color: var(--subtle) !important;
+    -webkit-text-fill-color: var(--subtle) !important;
     border-radius: 0 !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.85rem !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.82rem !important;
     font-weight: 400 !important;
     border: none !important;
-    border-bottom: 2px solid transparent !important;
-    padding: 0.55rem 1.4rem !important;
+    border-bottom: 1px solid transparent !important;
+    padding: 0.6rem 1.4rem !important;
     margin-bottom: -1px !important;
     outline: none !important;
+    letter-spacing: 0.01em !important;
 }
 .stTabs [data-baseweb="tab"]:hover {
-    color: #2C2825 !important;
-    -webkit-text-fill-color: #2C2825 !important;
+    color: var(--ink) !important;
+    -webkit-text-fill-color: var(--ink) !important;
     background: transparent !important;
 }
 .stTabs [aria-selected="true"] {
     background: transparent !important;
-    color: #2C2825 !important;
-    -webkit-text-fill-color: #2C2825 !important;
+    color: var(--ink) !important;
+    -webkit-text-fill-color: var(--ink) !important;
     font-weight: 500 !important;
     border: none !important;
-    border-bottom: 2px solid #2C2825 !important;
+    border-bottom: 1px solid var(--ink) !important;
     margin-bottom: -1px !important;
 }
 .stTabs [data-baseweb="tab-highlight"],
 .stTabs [data-baseweb="tab-border"] {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    background: transparent !important;
+    display: none !important; visibility: hidden !important;
+    height: 0 !important; background: transparent !important;
 }
 
 /* ── STICKY AI PANEL ── */
@@ -226,23 +222,28 @@ div[data-testid="stVerticalBlockBorderWrapper"] div[data-baseweb="slider"] > div
     max-height: calc(100vh - 2rem);
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: rgba(184,181,168,0.4) transparent;
+    scrollbar-color: rgba(0,0,0,0.1) transparent;
 }
-.ai-sticky-wrap::-webkit-scrollbar { width: 4px; }
-.ai-sticky-wrap::-webkit-scrollbar-thumb { background: rgba(184,181,168,0.4); border-radius: 4px; }
+.ai-sticky-wrap::-webkit-scrollbar { width: 3px; }
+.ai-sticky-wrap::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
 
-/* ── STICKY AI PANEL ── */
-    background: var(--linen);
+/* ── SECTION CARD ── */
+.section-card {
+    background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.3rem 1.4rem;
+    border-radius: 8px;
+    padding: 1.2rem 1.4rem;
     margin-bottom: 1.2rem;
+    transition: box-shadow 0.18s ease;
+}
+.section-card:hover {
+    box-shadow: 0 2px 8px rgba(26,23,20,0.05);
 }
 .section-label {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--taupe);
+    color: var(--muted);
     font-weight: 500;
     margin-bottom: 0.9rem;
 }
@@ -250,59 +251,58 @@ div[data-testid="stVerticalBlockBorderWrapper"] div[data-baseweb="slider"] > div
 /* ── BUTTONS ── */
 .stButton > button {
     background: var(--ink) !important;
-    color: var(--ivory) !important;
-    -webkit-text-fill-color: var(--ivory) !important;
+    color: #FFFDF9 !important;
+    -webkit-text-fill-color: #FFFDF9 !important;
     border: none !important;
-    border-radius: 8px !important;
-    font-family: 'DM Sans', sans-serif !important;
+    border-radius: 6px !important;
+    font-family: 'Inter', sans-serif !important;
     font-weight: 500 !important;
-    font-size: 0.84rem !important;
+    font-size: 0.82rem !important;
     padding: 0.45rem 1.1rem !important;
-    transition: opacity 0.2s !important;
+    letter-spacing: 0.01em !important;
+    transition: opacity 0.18s, transform 0.18s !important;
 }
-.stButton > button:hover { opacity: 0.82 !important; }
+.stButton > button:hover { opacity: 0.82 !important; transform: translateY(-1px) !important; }
 
 /* ── INPUTS ── */
 .stTextInput input, .stTextArea textarea {
-    background: var(--ivory) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     color: var(--ink) !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.87rem !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem !important;
+    transition: border-color 0.15s !important;
 }
 .stTextInput input:focus, .stTextArea textarea:focus {
-    border-color: var(--taupe) !important;
-    box-shadow: none !important;
+    border-color: var(--muted) !important;
+    box-shadow: 0 0 0 2px rgba(26,23,20,0.05) !important;
 }
 
 /* ── SELECTBOX ── */
 .stSelectbox > div > div {
-    background: var(--ivory) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     color: var(--ink) !important;
-    font-size: 0.87rem !important;
+    font-size: 0.85rem !important;
 }
 
 /* ── MULTISELECT ── */
 [data-testid="stMultiSelect"] > div {
-    background: var(--ivory) !important;
+    background: var(--white) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     min-height: 38px !important;
     max-height: 90px !important;
     overflow-y: auto !important;
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(184,181,168,0.4) transparent !important;
 }
-[data-testid="stMultiSelect"] > div::-webkit-scrollbar { width: 3px; }
-[data-testid="stMultiSelect"] > div::-webkit-scrollbar-thumb { background: rgba(184,181,168,0.4); border-radius: 3px; }
 [data-testid="stMultiSelect"] span[data-baseweb="tag"] {
-    background: rgba(107,101,96,0.13) !important;
+    background: var(--surface) !important;
     border: 1px solid var(--border) !important;
     color: var(--ink) !important;
-    border-radius: 5px !important;
+    border-radius: 4px !important;
     font-size: 0.76rem !important;
 }
 
@@ -311,87 +311,115 @@ div[data-testid="stMultiSelect"] label p,
 div[data-testid="stTextInput"] label p,
 div[data-testid="stSelectbox"] label p,
 div[data-testid="stSlider"] label p {
-    font-size: 0.72rem !important;
-    color: var(--taupe) !important;
+    font-size: 0.65rem !important;
+    color: var(--subtle) !important;
+    -webkit-text-fill-color: var(--subtle) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
     font-weight: 500 !important;
     margin-bottom: 3px !important;
 }
 
 /* ── PROGRESS ── */
-.stProgress > div > div { background: var(--taupe) !important; border-radius: 6px !important; }
-.stProgress > div { background: rgba(184,181,168,0.25) !important; border-radius: 6px !important; }
+.stProgress > div > div { background: var(--ink) !important; border-radius: 4px !important; }
+.stProgress > div { background: var(--border) !important; border-radius: 4px !important; }
 
 /* ── ALERT ── */
 div[data-testid="stAlert"] {
-    background: rgba(184,181,168,0.15) !important;
+    background: var(--surface) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
 }
-div[data-testid="stAlert"] p, div[data-testid="stAlert"] span { color: var(--taupe) !important; }
+div[data-testid="stAlert"] p, div[data-testid="stAlert"] span { color: var(--muted) !important; }
 
 /* ── FILE UPLOADER ── */
 [data-testid="stFileUploader"] {
-    background: var(--linen) !important;
-    border: 1px dashed var(--sage) !important;
-    border-radius: 10px !important;
+    background: var(--surface) !important;
+    border: 1px dashed var(--border2) !important;
+    border-radius: 8px !important;
 }
 
 /* ── SLIDER ── */
-.stSlider [data-baseweb="slider"] div[role="slider"] { background: var(--taupe) !important; border-color: var(--taupe) !important; }
-div[data-baseweb="slider"] > div > div > div:nth-child(2) { background: var(--taupe) !important; }
-.stSlider p { color: var(--taupe) !important; font-size: 0.78rem !important; }
+.stSlider [data-baseweb="slider"] div[role="slider"] { background: var(--ink) !important; border-color: var(--ink) !important; }
+div[data-baseweb="slider"] > div > div > div:nth-child(2) { background: var(--ink) !important; }
+.stSlider p { color: var(--muted) !important; font-size: 0.76rem !important; }
 
 /* ── DATAFRAME ── */
-[data-testid="stDataFrame"] { border: 1px solid var(--border) !important; border-radius: 10px !important; overflow: hidden; }
+[data-testid="stDataFrame"] { border: 1px solid var(--border) !important; border-radius: 8px !important; overflow: hidden; }
 
 /* ── DIVIDER ── */
-hr { border: none !important; border-top: 1px solid var(--border) !important; margin: 1.1rem 0 !important; }
+hr { border: none !important; border-top: 1px solid var(--border) !important; margin: 1.2rem 0 !important; }
 
 /* ── PILLS ── */
-.pill { display: inline-block; font-size: 0.74rem; padding: 2px 9px; border-radius: 20px; font-weight: 500; }
-.pill-pos { background: rgba(74,124,89,0.1);  color: var(--green); border: 1px solid rgba(74,124,89,0.25); }
-.pill-neg { background: rgba(184,84,80,0.1);  color: var(--red);   border: 1px solid rgba(184,84,80,0.25); }
-.pill-neu { background: rgba(201,151,58,0.1); color: var(--amber); border: 1px solid rgba(201,151,58,0.25); }
+.pill { display: inline-block; font-size: 0.72rem; padding: 2px 10px; border-radius: 10px; font-weight: 500; letter-spacing: 0.02em; }
+.pill-pos { background: rgba(42,122,75,0.08);  color: #2A7A4B; border: 1px solid rgba(42,122,75,0.2); }
+.pill-neg { background: rgba(192,57,43,0.08);  color: #C0392B; border: 1px solid rgba(192,57,43,0.2); }
+.pill-neu { background: rgba(212,134,10,0.08); color: #D4860A; border: 1px solid rgba(212,134,10,0.2); }
 
 /* ── AI CHAT ── */
 .chat-msg-user {
-    background: rgba(107,101,96,0.09); border: 1px solid var(--border);
-    border-radius: 10px 10px 2px 10px; padding: 0.65rem 0.9rem;
-    margin: 0.4rem 0; font-size: 0.85rem; color: var(--ink); line-height: 1.5;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px 10px 2px 10px;
+    padding: 0.7rem 1rem;
+    margin: 0.4rem 0 0.4rem 1.2rem;
+    font-size: 0.84rem;
+    color: var(--ink);
+    line-height: 1.55;
 }
 .chat-msg-ai {
-    background: var(--linen); border: 1px solid var(--border);
-    border-left: 3px solid var(--taupe); border-radius: 2px 10px 10px 10px;
-    padding: 0.65rem 0.9rem; margin: 0.4rem 0; font-size: 0.85rem; color: var(--ink); line-height: 1.6;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 2.5px solid var(--ink);
+    border-radius: 2px 10px 10px 10px;
+    padding: 0.7rem 1rem;
+    margin: 0.4rem 1.2rem 0.4rem 0;
+    font-size: 0.84rem;
+    color: var(--ink);
+    line-height: 1.6;
 }
-.chat-who { font-size: 0.67rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.2rem; }
-.chat-who-you { color: var(--taupe); }
-.chat-who-ai  { color: var(--green); }
+.chat-who {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.25rem;
+    padding-left: 0.15rem;
+}
+.chat-who-you { color: var(--muted); text-align: right; padding-right: 0.15rem; }
+.chat-who-ai  { color: var(--ink); }
 
 /* ── INSIGHT ── */
 .insight {
-    background: var(--ivory); border: 1px solid var(--border);
-    border-left: 3px solid var(--taupe); border-radius: 0 8px 8px 0;
-    padding: 0.65rem 0.9rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--ink); line-height: 1.5;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 2.5px solid var(--ink);
+    border-radius: 0 6px 6px 0;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.84rem;
+    color: var(--ink);
+    line-height: 1.55;
+    transition: transform 0.15s ease;
 }
+.insight:hover { transform: translateX(2px); }
 .insight.warn { border-left-color: var(--red); }
 .insight.info { border-left-color: var(--amber); }
 
 /* ── SCORE BARS ── */
-.sbar-wrap { margin: 0.35rem 0; }
-.sbar-top  { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--taupe); margin-bottom: 3px; }
-.sbar-track { height: 5px; background: rgba(184,181,168,0.28); border-radius: 3px; }
-.sbar-fill  { height: 5px; border-radius: 3px; }
+.sbar-wrap { margin: 0.4rem 0; }
+.sbar-top  { display: flex; justify-content: space-between; font-size: 0.74rem; color: var(--muted); margin-bottom: 4px; }
+.sbar-track { height: 1px; background: var(--border); border-radius: 1px; }
+.sbar-fill  { height: 1px; border-radius: 1px; }
 
 /* ── EMPTY STATE ── */
-.empty-state { text-align: center; padding: 5rem 2rem; color: var(--taupe); }
-.empty-icon  { font-size: 3rem; margin-bottom: 1rem; }
-.empty-title { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
-.empty-sub   { font-size: 0.87rem; line-height: 1.6; }
-code { background: rgba(184,181,168,0.2); color: var(--taupe); padding: 1px 5px; border-radius: 4px; font-size: 0.84em; }
+.empty-state { text-align: center; padding: 5rem 2rem; color: var(--muted); }
+.empty-icon  { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.4; }
+.empty-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
+.empty-sub   { font-size: 0.84rem; line-height: 1.6; }
+code { background: var(--surface); color: var(--muted); padding: 1px 5px; border-radius: 2px; font-size: 0.84em; }
 </style>
 """, unsafe_allow_html=True)
-
 
 # ── DEVICE ────────────────────────────────────────────────────────────────────
 def get_device():
@@ -404,13 +432,13 @@ PIPELINE_DEVICE = 0 if torch.cuda.is_available() else ("mps" if torch.backends.m
 MODEL_PATH      = "parvj-06/roberta-sentiment-classweighted"
 ASPECTS         = ["price","quality","delivery","service","packaging","quantity"]
 ASPECT_ICONS    = {"price":"💰","quality":"⭐","delivery":"🚚","service":"🎧","packaging":"📦","quantity":"⚖️"}
-COLORS          = {"positive":"#4A7C59","negative":"#B85450","neutral":"#C9973A"}
+COLORS          = {"positive":"#2A7A4B","negative":"#C0392B","neutral":"#D4860A"}
 PLOTLY_LAYOUT   = dict(
     paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="DM Sans", color="#6B6560", size=12),
+    font=dict(family="Inter", color="#918A82", size=11),
     margin=dict(l=10, r=10, t=36, b=10),
-    legend=dict(bgcolor="rgba(245,240,232,0.9)", bordercolor="rgba(184,181,168,0.6)",
-                borderwidth=1, font=dict(color="#2C2825", size=11))
+    legend=dict(bgcolor="rgba(255,253,249,0.95)", bordercolor="#E8E4DF",
+                borderwidth=1, font=dict(color="#1A1714", size=11))
 )
 
 
@@ -522,24 +550,25 @@ page_map = {"📊  Upload & Analyze": "analyze", "🔍  Single Review": "single"
 rmap     = {v: k for k, v in page_map.items()}
 
 def _tab(label, key, current):
-    s = ("color:#2C2825;font-weight:500;border-bottom:2px solid #2C2825;"
-         if current == key else "color:#B8B5A8;border-bottom:2px solid transparent;")
+    s = ("color:#1A1714;font-weight:500;border-bottom:1px solid #1A1714;"
+         if current == key else "color:#C4BDB5;border-bottom:1px solid transparent;")
     return (f'<a href="?p={key}" target="_self" style="text-decoration:none;'
-            f'padding:0 0 0.6rem 0;margin-left:2.2rem;font-size:0.9rem;'
-            f'font-family:DM Sans,sans-serif;cursor:pointer;{s}">{label}</a>')
+            f'padding:0 0 0.7rem 0;margin-left:2rem;font-size:0.85rem;'
+            f'font-family:Inter,sans-serif;cursor:pointer;letter-spacing:0.01em;'
+            f'transition:color 0.15s;{s}">{label}</a>')
 
 st.markdown(f"""
 <div style="display:flex;align-items:flex-end;justify-content:space-between;
-            border-bottom:1px solid rgba(184,181,168,0.55);
-            padding-bottom:0;margin-bottom:1.8rem;">
-    <div style="font-family:Lora,serif;font-size:2rem;font-weight:500;
-                color:#2C2825;padding-bottom:0.6rem;">
-        Sent<span style="color:#4A7C59;">IQ</span>
+            border-bottom:1px solid #E8E4DF;
+            padding-bottom:0;margin-bottom:2rem;">
+    <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;
+                font-style:italic;color:#1A1714;padding-bottom:0.7rem;letter-spacing:-0.02em;">
+        Sent<span style="font-style:normal;">IQ</span>
     </div>
     <div style="display:flex;align-items:flex-end;padding-bottom:0;margin-bottom:-1px;">
-        {_tab("📊&nbsp;&nbsp;Upload &amp; Analyze","analyze",st.session_state.page)}
-        {_tab("🔍&nbsp;&nbsp;Single Review","single",st.session_state.page)}
-        {_tab("📈&nbsp;&nbsp;Model Comparison","models",st.session_state.page)}
+        {_tab("Upload &amp; Analyze","analyze",st.session_state.page)}
+        {_tab("Single Review","single",st.session_state.page)}
+        {_tab("Model Comparison","models",st.session_state.page)}
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -592,7 +621,7 @@ if page == "analyze":
             st.session_state.df        = df
             st.session_state.aspect_df = pd.DataFrame(asp_results, columns=["Aspect","Sentiment"])
             st.session_state.analysis_done = True
-            st.markdown(f"<div style='background:var(--linen);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;margin-bottom:0.5rem;font-size:0.84rem;color:var(--taupe);'>Analysed {len(df)} reviews.</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='background:var(--white);border:1px solid var(--border);border-radius:6px;padding:0.6rem 1rem;margin-bottom:0.5rem;font-size:0.82rem;color:var(--muted);'>Analysed {len(df)} reviews.</div>", unsafe_allow_html=True)
 
         df        = st.session_state.df
         aspect_df = st.session_state.aspect_df
@@ -631,7 +660,7 @@ if page == "analyze":
                     df_f = df_f[(df_f["date"]>=pd.to_datetime(dr[0]))&(df_f["date"]<=pd.to_datetime(dr[1]))]
                     date_str = f" · {dr[0].strftime('%Y/%m/%d')} – {dr[1].strftime('%Y/%m/%d')}"
 
-            st.markdown(f"<div style='font-size:0.76rem;color:#B8B5A8;padding-top:0.1rem;'>Showing <strong style='color:#2C2825;'>{len(df_f)}</strong> of {len(df)} reviews{date_str}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='font-size:0.76rem;color:var(--muted);padding-top:0.1rem;'>Showing <strong style='color:var(--ink);'>{len(df_f)}</strong> of {len(df)} reviews{date_str}</div>", unsafe_allow_html=True)
 
         # ── KPIS ───────────────────────────────────────────────────────────
         total  = max(len(df_f), 1)
@@ -677,14 +706,14 @@ if page == "analyze":
                     fig_pie = go.Figure(go.Pie(
                         labels=counts.index, values=counts.values, hole=0.62,
                         marker=dict(colors=[COLORS.get(l,"#B8B5A8") for l in counts.index],
-                                    line=dict(color="#FDFAF4", width=3)),
-                        textfont=dict(family="DM Sans", size=12, color="#2C2825"),
+                                    line=dict(color="#FFFFFF", width=3)),
+                        textfont=dict(family="Inter", size=12, color="#1A1714"),
                         hovertemplate="<b>%{label}</b><br>%{value} reviews (%{percent})<extra></extra>"
                     ))
                     fig_pie.add_annotation(text=f"<b>{total}</b>", x=0.5, y=0.5, showarrow=False,
-                                           font=dict(color="#2C2825", size=20, family="Lora"))
+                                           font=dict(color="#1A1714", size=20, family="Playfair Display"))
                     fig_pie.update_layout(
-                        title=dict(text="Sentiment Distribution", font=dict(family="Lora", size=14, color="#2C2825")),
+                        title=dict(text="Sentiment Distribution", font=dict(family="Playfair Display", size=14, color="#1A1714")),
                         **PLOTLY_LAYOUT, height=300)
                     st.plotly_chart(fig_pie, use_container_width=True)
                 with c2:
@@ -693,21 +722,21 @@ if page == "analyze":
                         x=cdf["predicted_sentiment"], y=cdf["confidence"],
                         marker=dict(color=[COLORS.get(l,"#B8B5A8") for l in cdf["predicted_sentiment"]], line=dict(width=0)),
                         text=[f"{v:.1%}" for v in cdf["confidence"]], textposition="outside",
-                        textfont=dict(color="#2C2825", size=12, family="DM Sans")
+                        textfont=dict(color="#1A1714", size=12, family="Inter")
                     ))
                     fig_c.update_layout(
-                        title=dict(text="Avg Confidence by Sentiment", font=dict(family="Lora", size=14, color="#2C2825")),
-                        yaxis=dict(tickformat=".0%", gridcolor="rgba(184,181,168,0.3)", color="#6B6560"),
-                        xaxis=dict(color="#6B6560"), **PLOTLY_LAYOUT, height=300)
+                        title=dict(text="Avg Confidence by Sentiment", font=dict(family="Playfair Display", size=14, color="#1A1714")),
+                        yaxis=dict(tickformat=".0%", gridcolor="#F0EDE8", color="#918A82"),
+                        xaxis=dict(color="#918A82"), **PLOTLY_LAYOUT, height=300)
                     st.plotly_chart(fig_c, use_container_width=True)
 
                 fig_h = px.histogram(df_f, x="confidence", color="predicted_sentiment",
                                      color_discrete_map=COLORS, nbins=30, barmode="overlay", opacity=0.7,
                                      title="Confidence Score Distribution")
                 fig_h.update_layout(**PLOTLY_LAYOUT, height=240,
-                                    title=dict(font=dict(family="Lora", size=14, color="#2C2825")),
-                                    xaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"),
-                                    yaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"))
+                                    title=dict(font=dict(family="Playfair Display", size=14, color="#1A1714")),
+                                    xaxis=dict(gridcolor="#F0EDE8", color="#918A82"),
+                                    yaxis=dict(gridcolor="#F0EDE8", color="#918A82"))
                 st.plotly_chart(fig_h, use_container_width=True)
 
             with tabs[1]:
@@ -721,8 +750,8 @@ if page == "analyze":
                                                      marker_color=COLORS[s], marker_line_width=0,
                                                      hovertemplate=f"<b>%{{x}}</b> — {s}<br>%{{y}}<extra></extra>"))
                     fig_asp.update_layout(barmode="group",
-                        title=dict(text="Aspect-Level Sentiment", font=dict(family="Lora", size=14, color="#2C2825")),
-                        xaxis=dict(color="#6B6560"), yaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"),
+                        title=dict(text="Aspect-Level Sentiment", font=dict(family="Playfair Display", size=14, color="#1A1714")),
+                        xaxis=dict(color="#918A82"), yaxis=dict(gridcolor="#F0EDE8", color="#918A82"),
                         **PLOTLY_LAYOUT, height=340)
                     st.plotly_chart(fig_asp, use_container_width=True)
 
@@ -737,10 +766,10 @@ if page == "analyze":
                     ))
                     fig_r.update_layout(
                         polar=dict(bgcolor="rgba(0,0,0,0)",
-                            radialaxis=dict(visible=True, range=[0,100], gridcolor="rgba(184,181,168,0.4)",
-                                            color="#6B6560", ticksuffix="%"),
-                            angularaxis=dict(gridcolor="rgba(184,181,168,0.4)", color="#2C2825")),
-                        title=dict(text="Aspect Health (% Positive)", font=dict(family="Lora", size=14, color="#2C2825")),
+                            radialaxis=dict(visible=True, range=[0,100], gridcolor="#F0EDE8",
+                                            color="#918A82", ticksuffix="%"),
+                            angularaxis=dict(gridcolor="#F0EDE8", color="#1A1714")),
+                        title=dict(text="Aspect Health (% Positive)", font=dict(family="Playfair Display", size=14, color="#1A1714")),
                         **PLOTLY_LAYOUT, height=360)
                     st.plotly_chart(fig_r, use_container_width=True)
 
@@ -768,9 +797,9 @@ if page == "analyze":
                             mode="lines+markers", line=dict(color=COLORS.get(s,"#B8B5A8"), width=2),
                             marker=dict(size=6, color=COLORS.get(s,"#B8B5A8"))))
                     fig_t.update_layout(
-                        title=dict(text="Sentiment Over Time", font=dict(family="Lora", size=14, color="#2C2825")),
-                        xaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"),
-                        yaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"),
+                        title=dict(text="Sentiment Over Time", font=dict(family="Playfair Display", size=14, color="#1A1714")),
+                        xaxis=dict(gridcolor="#F0EDE8", color="#918A82"),
+                        yaxis=dict(gridcolor="#F0EDE8", color="#918A82"),
                         **PLOTLY_LAYOUT, height=340)
                     st.plotly_chart(fig_t, use_container_width=True)
 
@@ -781,9 +810,9 @@ if page == "analyze":
                                        color_discrete_sequence=["#6B6560"])
                     fig_roll.add_hline(y=0, line_dash="dash", line_color="#B85450", opacity=0.4)
                     fig_roll.update_layout(**PLOTLY_LAYOUT, height=240,
-                        title=dict(font=dict(family="Lora", size=14, color="#2C2825")),
-                        xaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"),
-                        yaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560"))
+                        title=dict(font=dict(family="Playfair Display", size=14, color="#1A1714")),
+                        xaxis=dict(gridcolor="#F0EDE8", color="#918A82"),
+                        yaxis=dict(gridcolor="#F0EDE8", color="#918A82"))
                     st.plotly_chart(fig_roll, use_container_width=True)
                 else:
                     st.info("Add a 'date' column to your CSV to unlock trend analysis.")
@@ -793,10 +822,10 @@ if page == "analyze":
                 wc_text = " ".join(df_f[df_f["predicted_sentiment"]==wc_s]["review"].astype(str))
                 if wc_text.strip():
                     cmap  = {"positive":"YlGn","negative":"OrRd","neutral":"Greys"}[wc_s]
-                    wc    = WordCloud(width=900, height=400, background_color="#F5F0E8",
+                    wc    = WordCloud(width=900, height=400, background_color="#FFFFFF",
                                       colormap=cmap, max_words=80).generate(wc_text)
                     fig_wc, ax = plt.subplots(figsize=(11,4))
-                    fig_wc.patch.set_facecolor("#F5F0E8"); ax.set_facecolor("#F5F0E8")
+                    fig_wc.patch.set_facecolor("#FFFFFF"); ax.set_facecolor("#FFFFFF")
                     ax.imshow(wc); ax.axis("off"); plt.tight_layout(pad=0)
                     st.pyplot(fig_wc)
                 else:
@@ -814,9 +843,9 @@ if page == "analyze":
         with ai_col:
             st.markdown("<div class='ai-sticky-wrap'>", unsafe_allow_html=True)
             st.markdown("""
-            <div style='border-bottom:1px solid rgba(184,181,168,0.55);padding-bottom:0.75rem;margin-bottom:0.75rem;'>
-                <div style='font-family:Lora,serif;font-size:0.95rem;font-weight:500;color:#2C2825;'>SentIQ Analyst</div>
-                <div style='font-size:0.71rem;color:#B8B5A8;margin-top:0.1rem;'>Answers grounded in your data</div>
+            <div style='border-bottom:1px solid var(--border);padding-bottom:0.75rem;margin-bottom:0.75rem;'>
+                <div style='font-family:Playfair Display,serif;font-size:1rem;font-weight:400;font-style:italic;color:var(--ink);'>SentIQ Analyst</div>
+                <div style='font-size:0.71rem;color:var(--muted);margin-top:0.15rem;'>Answers grounded in your data</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -826,7 +855,7 @@ if page == "analyze":
             chat_box = st.container(height=340)
             with chat_box:
                 if not st.session_state.ai_chat:
-                    st.markdown("<div style='padding:1.5rem 0.5rem;color:#B8B5A8;font-size:0.83rem;text-align:center;'>Ask me anything about your review data.</div>", unsafe_allow_html=True)
+                    st.markdown("<div style='padding:1.5rem 0.5rem;color:var(--subtle);font-size:0.83rem;text-align:center;'>Ask me anything about your review data.</div>", unsafe_allow_html=True)
                 for role, msg in st.session_state.ai_chat:
                     if role == "user":
                         st.markdown(f"<div class='chat-who chat-who-you'>You</div><div class='chat-msg-user'>{msg}</div>", unsafe_allow_html=True)
@@ -848,7 +877,7 @@ if page == "analyze":
                     st.session_state.ai_chat = []; st.rerun()
 
             st.markdown("<hr>", unsafe_allow_html=True)
-            st.markdown("<div style='font-size:0.68rem;text-transform:uppercase;letter-spacing:0.09em;color:#B8B5A8;margin-bottom:0.5rem;'>Quick insights</div>", unsafe_allow_html=True)
+            st.markdown("<div style='font-size:0.68rem;text-transform:uppercase;letter-spacing:0.09em;color:var(--subtle);margin-bottom:0.5rem;'>Quick insights</div>", unsafe_allow_html=True)
 
             for lbl, qp in {
                 "Top issues":        "What are the top 3 critical issues? Be specific with numbers.",
@@ -909,24 +938,29 @@ elif page == "single":
             sentiment, confidence = labels[0], confs[0]
             color = COLORS.get(sentiment, "#B8B5A8")
             st.markdown(f"""
-            <div style='background:var(--linen);border:1px solid rgba(184,181,168,0.6);border-left:4px solid {color};
-                        border-radius:10px;padding:1.3rem 1.5rem;margin:1rem 0;'>
-                <div style='font-size:0.68rem;text-transform:uppercase;letter-spacing:0.1em;color:#B8B5A8;'>Overall sentiment</div>
-                <div style='font-family:Lora,serif;font-size:2.2rem;font-weight:500;color:{color};margin:0.25rem 0 0.2rem;'>{sentiment.capitalize()}</div>
-                <div style='font-size:0.84rem;color:#6B6560;'>Confidence: <strong style='color:{color};'>{confidence:.1%}</strong></div>
+            <div style='background:var(--white);border:1px solid var(--border);border-left:4px solid {color};
+                        border-radius:10px;padding:1.4rem 1.6rem;margin:1rem 0;
+                        box-shadow:0 2px 8px rgba(26,23,20,0.04);'>
+                <div style='font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);font-weight:500;'>Overall sentiment</div>
+                <div style='font-family:Playfair Display,serif;font-size:2.4rem;font-weight:400;color:{color};margin:0.3rem 0 0.2rem;letter-spacing:-0.02em;'>{sentiment.capitalize()}</div>
+                <div style='font-size:0.84rem;color:var(--muted);'>Confidence: <strong style='color:{color};'>{confidence:.1%}</strong></div>
             </div>
             """, unsafe_allow_html=True)
-            st.markdown("<div class='section-label' style='margin-top:1.2rem;'>Aspect breakdown</div>", unsafe_allow_html=True)
+            st.markdown("<div class='section-label' style='margin-top:1.4rem;'>Aspect breakdown</div>", unsafe_allow_html=True)
             cols = st.columns(3)
             for i, (asp, sent) in enumerate(absa_results):
-                c = COLORS.get(sent, "#B8B5A8")
+                c = COLORS.get(sent, "#918A82")
+                pill_cls = "pos" if sent=="positive" else "neg" if sent=="negative" else "neu"
                 with cols[i%3]:
                     st.markdown(f"""
-                    <div style='background:var(--linen);border:1px solid rgba(184,181,168,0.6);border-top:2px solid {c};
-                                border-radius:8px;padding:0.8rem 1rem;margin-bottom:0.6rem;'>
-                        <div style='font-size:1rem;'>{ASPECT_ICONS.get(asp,'·')}</div>
-                        <div style='font-size:0.84rem;color:#2C2825;font-weight:500;margin:0.2rem 0 0.3rem;'>{asp.capitalize()}</div>
-                        <span class='pill pill-{"pos" if sent=="positive" else "neg" if sent=="negative" else "neu"}'>{sent}</span>
+                    <div style='background:var(--white);border:1px solid var(--border);border-top:2.5px solid {c};
+                                border-radius:10px;padding:1rem 1.1rem;margin-bottom:0.7rem;
+                                transition:transform 0.15s ease,box-shadow 0.15s ease;'
+                         onmouseenter="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(26,23,20,0.06)'"
+                         onmouseleave="this.style.transform='none';this.style.boxShadow='none'">
+                        <div style='font-size:1.2rem;margin-bottom:0.15rem;'>{ASPECT_ICONS.get(asp,'·')}</div>
+                        <div style='font-size:0.86rem;color:var(--ink);font-weight:500;margin:0.15rem 0 0.4rem;'>{asp.capitalize()}</div>
+                        <span class='pill pill-{pill_cls}'>{sent}</span>
                     </div>""", unsafe_allow_html=True)
         else:
             st.warning("Please enter a review.")
@@ -970,9 +1004,9 @@ elif page == "models":
         ))
     fig_r.update_layout(
         polar=dict(bgcolor="rgba(0,0,0,0)",
-            radialaxis=dict(visible=True, range=[0.4,1.0], gridcolor="rgba(184,181,168,0.4)", color="#6B6560", tickformat=".0%"),
-            angularaxis=dict(gridcolor="rgba(184,181,168,0.4)", color="#2C2825")),
-        title=dict(text="Model Radar", font=dict(family="Lora", size=14, color="#2C2825")),
+            radialaxis=dict(visible=True, range=[0.4,1.0], gridcolor="#F0EDE8", color="#918A82", tickformat=".0%"),
+            angularaxis=dict(gridcolor="#F0EDE8", color="#1A1714")),
+        title=dict(text="Model Radar", font=dict(family="Playfair Display", size=14, color="#1A1714")),
         **PLOTLY_LAYOUT, height=420)
     st.plotly_chart(fig_r, use_container_width=True)
 
@@ -981,11 +1015,11 @@ elif page == "models":
         fig_b.add_trace(go.Bar(name=m, x=df_m["Model"], y=df_m[m],
             marker_color=["#4A7C59","#C9973A","#B85450","#B8B5A8","#6B6560"][i],
             marker_line_width=0, text=[f"{v:.1%}" for v in df_m[m]], textposition="outside",
-            textfont=dict(size=11, color="#2C2825")))
+            textfont=dict(size=11, color="#1A1714")))
     fig_b.update_layout(barmode="group",
-        title=dict(text="All Metrics", font=dict(family="Lora", size=14, color="#2C2825")),
-        xaxis=dict(color="#6B6560"),
-        yaxis=dict(gridcolor="rgba(184,181,168,0.3)", color="#6B6560", tickformat=".0%", range=[0,1.08]),
+        title=dict(text="All Metrics", font=dict(family="Playfair Display", size=14, color="#1A1714")),
+        xaxis=dict(color="#918A82"),
+        yaxis=dict(gridcolor="#F0EDE8", color="#918A82", tickformat=".0%", range=[0,1.08]),
         **PLOTLY_LAYOUT, height=380)
     st.plotly_chart(fig_b, use_container_width=True)
 
