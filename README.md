@@ -6,7 +6,8 @@
 
 ## 🚀 Live Demo
 
-> Deployed on Streamlit Community Cloud *(link coming soon)*
+> Deployed on Streamlit Community Cloud
+> https://ai-market-research-dashboard-hju8skkacvqfxv3n8k8ddy.streamlit.app
 
 ---
 
