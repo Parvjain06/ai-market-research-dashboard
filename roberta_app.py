@@ -321,8 +321,30 @@ div[data-testid="stSlider"] label p {
 }
 
 /* ── PROGRESS ── */
-.stProgress > div > div { background: var(--ink) !important; border-radius: 4px !important; }
-.stProgress > div { background: var(--border) !important; border-radius: 4px !important; }
+.stProgress div[role="progressbar"] { background: var(--border) !important; border-radius: 4px !important; }
+.stProgress div[role="progressbar"] > div { background: var(--ink) !important; border-radius: 4px !important; }
+.stProgress { background: transparent !important; }
+.stProgress > div { background: transparent !important; }
+.stProgress > div > div:not([role="progressbar"]) { background: transparent !important; }
+.stProgress p, .stProgress span { color: var(--muted) !important; background: transparent !important; }
+
+/* ── SPINNER ── */
+div[data-testid="stSpinner"],
+div[data-testid="stSpinner"] > div,
+div[data-testid="stStatusWidget"],
+div[data-testid="stStatusWidget"] > div {
+    background: transparent !important;
+    color: var(--muted) !important;
+}
+div[data-testid="stSpinner"] span,
+div[data-testid="stSpinner"] p,
+div[data-testid="stStatusWidget"] span,
+div[data-testid="stStatusWidget"] p,
+.stSpinner > div {
+    color: var(--muted) !important;
+    -webkit-text-fill-color: var(--muted) !important;
+    background: transparent !important;
+}
 
 /* ── ALERT ── */
 div[data-testid="stAlert"] {
