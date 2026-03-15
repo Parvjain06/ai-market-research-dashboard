@@ -219,8 +219,19 @@ div[data-testid="stVerticalBlockBorderWrapper"] div[data-baseweb="slider"] > div
     background: transparent !important;
 }
 
-/* ── SECTION CARD ── */
-.section-card {
+/* ── STICKY AI PANEL ── */
+.ai-sticky-wrap {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(184,181,168,0.4) transparent;
+}
+.ai-sticky-wrap::-webkit-scrollbar { width: 4px; }
+.ai-sticky-wrap::-webkit-scrollbar-thumb { background: rgba(184,181,168,0.4); border-radius: 4px; }
+
+/* ── STICKY AI PANEL ── */
     background: var(--linen);
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -279,12 +290,20 @@ div[data-testid="stVerticalBlockBorderWrapper"] div[data-baseweb="slider"] > div
     background: var(--ivory) !important;
     border: 1px solid var(--border) !important;
     border-radius: 8px !important;
+    min-height: 38px !important;
+    max-height: 90px !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(184,181,168,0.4) transparent !important;
 }
+[data-testid="stMultiSelect"] > div::-webkit-scrollbar { width: 3px; }
+[data-testid="stMultiSelect"] > div::-webkit-scrollbar-thumb { background: rgba(184,181,168,0.4); border-radius: 3px; }
 [data-testid="stMultiSelect"] span[data-baseweb="tag"] {
     background: rgba(107,101,96,0.13) !important;
     border: 1px solid var(--border) !important;
     color: var(--ink) !important;
     border-radius: 5px !important;
+    font-size: 0.76rem !important;
 }
 
 /* ── GLOBAL LABELS ── */
@@ -573,16 +592,14 @@ if page == "analyze":
             st.session_state.df        = df
             st.session_state.aspect_df = pd.DataFrame(asp_results, columns=["Aspect","Sentiment"])
             st.session_state.analysis_done = True
-            st.success(f"Analysed {len(df)} reviews.")
+            st.markdown(f"<div style='background:var(--linen);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1rem;margin-bottom:0.5rem;font-size:0.84rem;color:var(--taupe);'>Analysed {len(df)} reviews.</div>", unsafe_allow_html=True)
 
         df        = st.session_state.df
         aspect_df = st.session_state.aspect_df
 
         # ── FILTER BAR ─────────────────────────────────────────────────────
-        # Use st.container(border=True) — this renders a real bordered box
-        # that Streamlit widgets naturally sit inside.
         with st.container(border=True):
-            fc1, fc2, fc3, fc4, fc5 = st.columns([2.8, 2.2, 1.8, 1.4, 1.4])
+            fc1, fc2, fc3, fc4, fc5 = st.columns([2.5, 2.0, 1.8, 1.3, 1.2])
 
             with fc1:
                 prod_filter = st.multiselect("Product", df["product"].unique(), df["product"].unique())
@@ -605,19 +622,16 @@ if page == "analyze":
                 top_n = st.selectbox("Show", [50, 100, 200, 500, "All"], index=1)
                 if top_n != "All": df_f = df_f.head(int(top_n))
 
-            # second row: date + count
-            r1, r2 = st.columns([3, 6])
-            with r1:
-                if "date" in df_f.columns and df_f["date"].notna().any():
-                    dr = st.date_input("Date range", [df_f["date"].min(), df_f["date"].max()],
-                                       label_visibility="visible")
-                    if len(dr) == 2:
-                        df_f = df_f[(df_f["date"]>=pd.to_datetime(dr[0]))&(df_f["date"]<=pd.to_datetime(dr[1]))]
-            with r2:
-                st.markdown(f"""
-                <div style='padding-top:1.6rem;font-size:0.8rem;color:#B8B5A8;'>
-                    Showing <strong style='color:#2C2825;'>{len(df_f)}</strong> of {len(df)} reviews
-                </div>""", unsafe_allow_html=True)
+            # date range + count as a slim subtitle row
+            date_str = ""
+            if "date" in df_f.columns and df_f["date"].notna().any():
+                dr = st.date_input("Date range", [df_f["date"].min(), df_f["date"].max()],
+                                   label_visibility="collapsed")
+                if len(dr) == 2:
+                    df_f = df_f[(df_f["date"]>=pd.to_datetime(dr[0]))&(df_f["date"]<=pd.to_datetime(dr[1]))]
+                    date_str = f" · {dr[0].strftime('%Y/%m/%d')} – {dr[1].strftime('%Y/%m/%d')}"
+
+            st.markdown(f"<div style='font-size:0.76rem;color:#B8B5A8;padding-top:0.1rem;'>Showing <strong style='color:#2C2825;'>{len(df_f)}</strong> of {len(df)} reviews{date_str}</div>", unsafe_allow_html=True)
 
         # ── KPIS ───────────────────────────────────────────────────────────
         total  = max(len(df_f), 1)
@@ -796,8 +810,9 @@ if page == "analyze":
                 with c1: st.download_button("Download filtered CSV", df_f.to_csv(index=False).encode(), "filtered.csv","text/csv")
                 with c2: st.download_button("Download full CSV",     df.to_csv(index=False).encode(),   "full.csv","text/csv")
 
-        # ── AI PANEL ──────────────────────────────────────────────────────
+        # ── AI PANEL (sticky) ──────────────────────────────────────────────
         with ai_col:
+            st.markdown("<div class='ai-sticky-wrap'>", unsafe_allow_html=True)
             st.markdown("""
             <div style='border-bottom:1px solid rgba(184,181,168,0.55);padding-bottom:0.75rem;margin-bottom:0.75rem;'>
                 <div style='font-family:Lora,serif;font-size:0.95rem;font-weight:500;color:#2C2825;'>SentIQ Analyst</div>
@@ -859,6 +874,8 @@ if page == "analyze":
             if st.session_state.ai_chat:
                 chat_txt = "\n\n".join([f"{r.upper()}: {m}" for r,m in st.session_state.ai_chat])
                 st.download_button("Download chat", chat_txt, "chat.txt","text/plain")
+
+            st.markdown("</div>", unsafe_allow_html=True)
 
     else:
         st.markdown("""
